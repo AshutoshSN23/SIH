@@ -1,0 +1,65 @@
+<!--
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="calculate">
+        <h1>GET PINCODE</h1>
+
+        <form action="" method="post">
+            <input type="text" name="place" placeholder="place" required="required">
+
+            <button type="submit" class="btn btn-primary btn-block btn-large">Get Pincode</button>
+        </form>
+
+        <br>
+            Pincode is <h1>{{res}} </h1>
+        <br>
+    </div>
+</body>
+</html>
+
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form</title>
+</head>
+<body>
+    <h1>Search for Pincode</h1>
+    <form action="/" method="post">
+        <label for="place">Enter address:</label>
+        <input type="text" id="place" name="place" required>
+        <button type="submit">Submit</button>
+    </form>
+
+    {% if result %}
+        <h2>Results for "{{ place }}"</h2>
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>Office Name</th>
+                    <th>Pincode</th>
+                    <th>Distance (km)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>{{ result['OfficeName'] }}</td>
+                    <td>{{ result['Pincode'] }}</td>
+                    <td>{{ result['Distance_km'] }}</td>
+                </tr>
+            </tbody>
+        </table>
+    {% elif res %}
+        <p>{{ res }}</p>
+    {% endif %}
+</body>
+</html>
